@@ -1,0 +1,10 @@
+Uma resposta correta será *(pulo + 2). Pois será um ponteiro que aponta para o valor alocado em p acrescido em duas unidades. Como pulo é um vetor com início no índice 0, ao acrescer 
+duas unidades irá para o índice 2 do vetor, que é o terceiro elemento do vetor. O trecho do código testado por mim foi:
+         int *p;
+          p=*(pulo + 2);
+              printf("%d \n", p);
+
+Outra resposta correta é pulo + 2, a partir do seguinte trecho de código, também resultará no terceiro elemento do vetor.
+          int *p;
+           p= pulo + 2;
+            printf("%d \n", *p);
