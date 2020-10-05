@@ -1,0 +1,22 @@
+int main() {
+  int    mat[4];
+  int *p, x; 
+  mat[0] = 31;
+  mat[1] = 45;
+  mat[2] = 27;
+  mat[3] = 13;
+ 
+p= mat + 1; // Funciona, pois é uma ferramenta para acrescer 1 inteiro ao índice do vetor mat
+    printf("%d \n", *p);
+
+*p = mat++ ; // Não funciona, pois essa ferramenta é usada para incrementar uma unidade em números do tipo int e float
+  printf("%d \n", *p);
+
+p = ++mat // Não funciona. Primeiro pelo motivo antes falado, segundo pela sintaxe está escrite errada. O correto seria mat++
+  printf("%d \n", *p);
+
+x = (*mat)++; // Funciona, pois x está guardando o ponteiro para inteiro que aponta para o o vetor mat, e, quando acrescido uma unidade de inteiro, guarda o primeiro elemento do vetor.
+  printf("%d \n", x);
+
+  return(0);
+}
