@@ -1,0 +1,12 @@
+int main(void){
+  int i=5, *p;
+p = &i;
+printf("%x %d %d %d %d", p,*p+2,**&p,3**p,**&p+4);
+
+}
+
+//A primeira saída é o endereço comercial da variável i, uma vez que é para onde o ponteiro para inteiro p está apontando.
+//A segunda saída é um número inteiro, uma vez que *p é um ponteiro que aponta para o valor armazenado no endereço de i acrescido de duas unidades. Logo, 7.
+//A terceira saída também deverá ser inteiro. Temos que "*&p" é um ponteiro que aponta para o indereço de p, entretanto "*(*&p)" é um ponteiro que aponta para o valor contido no enedereço de p, que é o mesmo endereço de i e, desse modo, guarda o inteiro 5.
+//Para não confundir, podemos escrever como 3*(*p). Logo, temos o inteiro 3 multiplicado pelo ponteiro que aponta para o valor de p, que é 5. Desse modo, será 3*5 que é o inteiro 15.
+//Reescrevendo temo que *(*(&p)). Examinando de dentro para fora temos que, o primeiro ponteiro aponta para o valor do endereço de p, entretanto, o segundo asterisco indica que está apontando para o valor contido no endereço de p que é 5. Por fim, será acrescido o inteiro 4 e teremos por fim o inteiro 9.
