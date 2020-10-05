@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+//Declarando variáveis
+int i=5, j=3, *q, *p;
+  //p = i
+    p = i;
+    printf("\n O valor é: %p", p); //É possível sim
+  //q = &j
+    q = &j;
+    printf("\n O valor é: %p", q); //É possível sim
+  //p = &*&i
+    p = &*&i;
+    printf("\n O valor é: %p", p); //É possivel sim
+   //i = (*&)j
+    i = (*&)j;
+    printf("\n O valor é: %d", i); //Não é possível, pois a sintaxe está errada. O certo seria i = *(&j)
+  //i = *&j
+    i = *&j;
+    printf("\n O valor é: %d", i); //É possivel sim
+  //i = *&*&j
+    i = *&*&j;
+    printf("\n O valor é: %d", i); //É possivel sim
+  //q = *p
+    q = *p;
+    printf("\n O valor é: %p", q); //Não é válida a expressão
+  //i = (*p)++ + *q
+    i = (*p)++ + *q;
+    printf("\n O valor é: %d", i); //É possível sim
+  
+
+return 0;
+}
