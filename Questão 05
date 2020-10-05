@@ -1,0 +1,40 @@
+Letra a) Na letra a o progama atribui um numero inteiro para variável valor. Em seguida, o endereço de memória da variável valor é alocada na variável p1. Logo, ao imprimirmos
+o valor *p1, queremos o ponteiro que aponta para o valor que está alocado no endereço de memória guardado em p1, que por sua vez é o endereço que guarda o inteiro 10, como já
+esperado.
+
+Letra b) Começamos com a variável tmp guardando um número real (float) de valor 26.5. Em seguida, o endereço da variável tmp será alocada no ponteiro para float p2. Posto isso, dizemos agora
+que o valor que p2 aponta é 29.0 e não mais 26.5. Logo, ao imprimirmos o ponteiro *p2, será remetido o novo valor alocado no endereço de memória da variável tmp, guardada em p2, 
+que é 29.5.
+
+Letra c) Nessa alternativa trabalharemos com o ponteiro para char p3. Em p3 será alocada o endereço de memória do vetor nome[0], que é o primeiro caractére contido no vetor nome, que contém a palavra "Ponteiros"
+(um vetor com nove elementos). Após isso, uma variável aux é chamada para receber o valor que está alocado no endereço de memória que está guardado em p3, em síntese *p3. Como o que
+está guardado na verdade é apenas o primeiro char da palavra Ponteiros, será impresso apenas a letra P.
+
+Letra d) Seguindo a mesma lógica da letra c, temos um vetor aux guardando o valor alocado no endereço de memória guardada em p3, que por sua vez é nome[4], ou seja, o quinto
+elemento do vetor nome. Quando imprimido aux, verificou-se o caractere "e" como já esperado.
+
+Letra e) Como não foi especificado o índice do vetor, será imprimido o primeiro elemento do vetor, que é o char "P".
+
+Letra f) Dando prosseguimento, na questão anterior vimos que *p3 estava apontanto para o char "P", o *nome[0]. Na letra f é acrescido +4 char, logo, iremos para o quinto elemento
+do vetor nome. Como esperado, voi imprimido tal resultado, que é o char "e"
+
+Letra g) Ainda nesse princípio, *p3 agora aponta agora para o caractere "e" e esse é decrescido de uma unidade de char, alocando agora o quarto elemento do vetor, o qual foi imprimido
+o caractere "t".
+
+Letra h) Como não foi especificado o índice do vetor, será imprimido o primeiro elemento do vetor, que é o inteiro de valor 31.
+
+Letra i) Como posto na letra h, o valor alocado no ponteiro p4 é o inteiro 31, que é o primeiro elemento do vetor idade. Após isso, é chamada o ponteiro para inteiro p5 que aloca o
+resultado de p4 +1. É fácil confundir-se de que esse acrescimo é no valor alocado no ponteiro, mas é um acréscimo de uma unidade no vetor idade, pulando agora para idade[1], que é igual
+ao inteiro de valor 45.
+
+Letra j) O código agora informa que o valor de p4 agora será o valor anteriomente estabelecido para o ponteiro *p5 acrescido de uma unidade de int. Logo, como já dito, p4 será idade[1] 
+acrescido de uma unidade no vetor, passando para idade[2], que tem como valor o inteiro 27.
+
+Letra l) Agora decresceremos duas unidade do ponteiro *p4, ficará p4 = idade[2] - 2, que resultará em p4 = idade[0], recordando o valor inteiro 31, que foi impresso.
+
+Letra m) Para facilitar o entendimento, podemos reescrever essa parte como p5 = &(vetor[2] - 1). Logo, será alocado em p5 o endereço de memória do vetor[1] (foi decrescido uma
+unidade). Em seguida foi imprimido o ponteiro para inteiro que aponta para o valor guardado na variável cujo endereço está guardada em p5, que será o inteiro 45.
+
+Letra n) Por fim, foi acrescido duas unidades a p5 e o ponteiro para inteiro apontará para o valor de vetor[2], que, como já vimos, é o inteiro 27.
+
+
