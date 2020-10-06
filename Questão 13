@@ -1,0 +1,23 @@
+Tendo ciência de uma função como um conjunto de instruções armazenadas na memória, que tem por finalidade simplificar o código, evitando passos extras que consumam mais memória.
+A finalidade um ponteiro para função é, regastar a função armazenada na memória sem que seja necessário reescreve-la de forma usual, o que simplifica o simplificador, fazendo uso
+das minhas próprias palavras. Em primeiro passo, a função será executada é feita em um outro ponto do código, fazendo o ponteiro apontar para a função desejada. (Esse texto foi 
+escrito tomando base a publicação do Prof. Márcio Sarroglia Pinho. Disponível em:https://www.inf.pucrs.br/~pinho/PRGSWB/PonteirosParaFuncoes/PonteirosParaFuncoes.html)
+
+Código desenvolvido por mim:
+// Declarando nossa função média aritimética entre dois números
+int media(int a, int b){
+  return (a+b)/2;
+}
+//Criando a função principal
+int main(void) {
+  int x, y, z;
+  int (*p)(int, int); //Aqui nós dizemos que o ponteiro para inteiro irá receber dois inteiros como parâmetro
+printf(" Escolha o primeiro valor: ");
+scanf("%d", &x);
+printf(" Escolha o segundo valor: ");
+scanf("%d", &y);
+p = media; // Aqui o ponteiro p receberá a função doma
+z = p(x,y); // z é igual a função média apontada por p 
+printf("\n A média será: %d ", z);
+  return 0;
+}
