@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare (const void * a, const void * b)
+{
+  return ( *(int*)a - *(int*)b );
+}
+
+int main(){
+
+  int qtd;
+      printf("\n Digite o a quantidade de termos do vetor: ");
+         scanf("%d", &qtd);
+
+  float vetor[qtd];
+  int i = 0;
+  float valor;
+  
+
+    while(i<qtd){
+      printf(" Digite o termo: ");
+        scanf("%f", &valor);
+          vetor [i] = valor;
+              i++;
+    }
+  
+   int j=0;
+    printf("\n O seu vetor é: {");
+   while (j<qtd){
+    
+     printf("%.1f;", vetor[j]);
+     j++;
+   }
+  printf("}");
+
+int n;
+printf("\n O seu vetor reorganizado será: {");
+  qsort (vetor, qtd, sizeof(int), compare);
+  for (n=0; n<qtd; n++){
+     printf ("%.1f;",vetor[n]);
+  }
+ printf("}");
+  
+  return 0;
+}
