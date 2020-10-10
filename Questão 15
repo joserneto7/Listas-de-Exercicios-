@@ -1,41 +1,48 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> //A função qsort está inclusa nesta biblioteca
 
-int compare (const void * a, const void * b)
+//A função qsort() é uma função em C utilizada para ordenação de arrays. 
+int compare (const void * a, const void * b) //A função receberá duas constantes do vetor e as comparará. Vemos que a função recebe dois ponteiros void, o que salienta a necessidade de exemplificar o tipo das constantes, no caso, inteiros.
 {
-  return ( *(int*)a - *(int*)b );
+  return ( *(int*)a - *(int*)b ); //Se o valor de “a” for maior do que o valor de “b”, então o resultado será maior do que zero significando que o primeiro valor é maior do que o segundo. *Fato interessando é que essa ordenação fará o vetor exibir seus termos organizados em ordem crescente. Se inverter os termos a e b, o vetor será exibido em ordem decrescente.
 }
 
+//Função principal
 int main(){
 
+//Caracterização do vetor qtd: Irá solicitar que o usuário defina o tamanho do vetor, e armazenará na variável qtd.
   int qtd;
       printf("\n Digite o a quantidade de termos do vetor: ");
          scanf("%d", &qtd);
 
+//Aqui definimos o vetor de números do tipo float, de tamanho "qtd", bem como que o índice i do vetor com valor inicial de 0 e a variável "valor" que guardará os valores digitados pelo usuário para o vetor.
   float vetor[qtd];
   int i = 0;
   float valor;
   
-
+//Nessa parte eu incremento um while onde determina que enquanto o índice do vetor for menor que o inteiro qtd, o usuário deverá digitar termos. Por ex: Se qtd = 2, o usuário digitará dois valores. Um valor para o índice i[0] e um valor para o índice i[1] (Já que o o while lerá de 0 à qtd-1).
     while(i<qtd){
       printf(" Digite o termo: ");
-        scanf("%f", &valor);
-          vetor [i] = valor;
-              i++;
+        scanf("%f", &valor); //Após cada índice preenchido pelo usuário, o programa vai guardar essa variável float no endereço de memória da variável valor.
+          vetor [i] = valor; //Em último passo, o valor contido em valor será armazenado no vetor "vetor" de índice i.
+              i++; //Condição de repetição: Após o processo feito para um termo, o programa irá repetir a execução para os próximos termos, até o termo qtd - 1.
     }
-  
-   int j=0;
+  //Criação de um while para exebir o vetor digitado (Ainda de forma desordenada)
+   int j=0; //Criação de um novo índice para o vetor "vetor"
     printf("\n O seu vetor é: {");
    while (j<qtd){
-    
-     printf("%.1f;", vetor[j]);
-     j++;
+    //Enquanto o índide j for menor do que a variável qtd, será impresso o valor digitado pelo usuário, atmazenando no vetor de índice j.
+     printf("%.1f;", vetor[j]); //Por organização, solicitei ao programa para usar apenas uma cassa decimal.
+     j++; //Novamente a condição que fará esse trecho parar de executar, a condição de encerramento
    }
   printf("}");
 
-int n;
+//Agora sim vamos chamar a função qsort para organizar os termos do vetor
+int n; //Criação de uma variável inteira n que será o índice do vetor organizado
 printf("\n O seu vetor reorganizado será: {");
-  qsort (vetor, qtd, sizeof(int), compare);
+  qsort (vetor, qtd, sizeof(float), compare); //Aqui eu passo para a função comparação o meu vetor, a quantidade de termos dele (Para delimitar quais termos eu devo ordenar), o tamanho de cada elemento do tipo float (Estou dizendo para a função qual o tipo dos elementos que eu estou querendo ordenar) e, por fim, chamo a função compare.
+ 
+ //Esse trecho é usado para imprimir o vetor novamente, dessa vez de forma organizada
   for (n=0; n<qtd; n++){
      printf ("%.1f;",vetor[n]);
   }
