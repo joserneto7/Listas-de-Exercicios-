@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h> //A função qsort está inclusa nesta biblioteca
+
+//Função principal
+int main(){
+
+//Caracterização do vetor qtd: Irá solicitar que o usuário defina o tamanho do vetor, e armazenará na variável qtd.
+  int qtd;
+      printf("\n Digite o a quantidade de termos do vetor: ");
+        scanf("%d", &qtd); 
+
+//Aqui definimos o vetor de números do tipo float, de tamanho "qtd", bem como que o índice i do vetor com valor inicial de 0 e a variável "valor" que guardará os valores digitados pelo usuário para o vetor.
+  float vetor[qtd];
+  int i = 0;
+  float valor;
+  
+//Nessa parte eu incremento um while onde determina que enquanto o índice do vetor for menor que o inteiro qtd, o usuário deverá digitar termos. Por ex: Se qtd = 2, o usuário digitará dois valores. Um valor para o índice i[0] e um valor para o índice i[1] (Já que o o while lerá de 0 à qtd-1).
+    while(i<qtd){
+      printf(" Digite o termo: ");
+        scanf("%f", &valor); //Após cada índice preenchido pelo usuário, o programa vai guardar essa variável float no endereço de memória da variável valor.
+          vetor [i] = valor; //Em último passo, o valor contido em valor será armazenado no vetor "vetor" de índice i.
+              i++; //Condição de repetição: Após o processo feito para um termo, o programa irá repetir a execução para os próximos termos, até o termo qtd - 1.
+    }
+  //Criação de um while para exebir o vetor digitado (Ainda de forma desordenada)
+   int j=0; //Criação de um novo índice para o vetor "vetor"
+    printf("\n O seu vetor é: {");
+   while (j<qtd){
+    //Enquanto o índide j for menor do que a variável qtd, será impresso o valor digitado pelo usuário, atmazenando no vetor de índice j.
+     printf("%.1f;", vetor[j]); //Por organização, solicitei ao programa para usar apenas uma cassa decimal.
+     j++; //Novamente a condição que fará esse trecho parar de executar, a condição de encerramento
+   }
+  printf("}");
+
+//Aqui começa o processo de organização:
+printf("\n O seu vetor organizado é: {");
+
+// primeiro fazemos um for gerador do vetor, indo de 0 até qtd -1. A variável i será o índice do vetor, com já comentado.
+  for(i=0; i<qtd;i++){
+    //Esse segundo for vai percorrer o primeiro for a modo de comparar ambos os elementos. Para exemplificar, posso dizer que: quando o primeiro for estiver no índice 0, o segundo estará no índice 0+1 = índice 1 e comparará ambos.
+    for(j=i+1; j<qtd; j++){
+      //Apos comparado eu disse que, se o vetor de índice i for menor que o do íncide j (O índice j é igual ao índice i+1);
+      if(vetor[i]>vetor[j]){
+        //Se for, o programa vai guardar esse valor numa variável auxiliar;
+        int aux = vetor [i];
+        //Após isso, o vetor[i] receberá o valor contido no vetor[j], que nesse caso é um valor menor;
+        vetor[i] = vetor[j];
+        //Por fim, o vetor[j] irá receber o valor maior, de índice i. O processo será executado ao longo do vetor, promovendo assim a organização
+        vetor[j] = aux;
+      }
+    }
+  }
+
+  //Agora sim, o vetor[i] está com seus termos na ordem do menor para o maior, basta escrever um for para exibi-lo.
+  for(i=0; i<qtd;i++){
+    printf("%.1f;", vetor[i]);
+  }
+printf("}");
+  
+  return 0;
+}
