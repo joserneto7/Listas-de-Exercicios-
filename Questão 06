@@ -1,0 +1,21 @@
+int main(void){
+  float vet[5] = {1.1,2.2,3.3,4.4,5.5}; 
+  float *f;
+  int i;
+  f = vet;
+  printf("contador/valor/valor/endereco/endereco");
+  for(i = 0 ; i <= 4 ; i++){ // Como é um for, ele vai rodar para todos os índices do vetor até, por fim, parar. Por isso é imprimido o resultado para cada elemento do vetor.
+
+    printf("\ni = %d",i); // Nessa linha será impresso apenas o índice do vetor vet para cada um dos 5 (Começa no indice 0 e finaliza no índice 4). Logo, temos aqui de maneira escrita "i = índice do vetor"
+    
+    printf("vet[%d] = %.1f",i, vet[i]); // Aqui ele imprime a palavra vet[] alocando dentro os inteiros que representam os índices do vetor. Após o sinal de igual ele imprime os elementos que estão guardados dentro de cada índice do vetor, ou seja, os elementos do vetor
+    
+    printf("*(f + %d) = %.1f",i, *(f+i)); // Posto isso, nesse trecho ele adiciona um asterisco como forma de explicitar uma mutiplicação dos elementos do vetor (mostrado acima) por uma soma escrita como (f + índice do vetor), no qual, como já visto são números inteiros que vão de 0 à 4. Após o terceiro sinal de igual, ele novamente pede para o programa exibir o elemento que está guardado em cada índice.
+
+    printf("&vet[%d] = %X",i, &vet[i]); // Seguindo, ele notifica, no código, que o programa irá exibir o "e" comecia que é &, seguido de vet[índice do vetor]. Para quem conhece minimamente a linguagem sabe que é o algorítimo para exibir o endereço de memória de cada elemento do vetor, o que é feito após o quarto sinal de igual.
+
+    printf("(f + %d) = %X",i, f+i); // Ele escreve, por fim, que o endereço de memória, multiplicado pela soma (f + índice do vetor) é igual ao próprio endereço de memória do elemento.
+  }
+
+  // O código é condizente ao exibido, uma vez que realmente apresenta o contador, o valor contido em cada índice do vedor, novamente o valor, o endereço do elemento e, novamente, o endereço do elemento.
+}
