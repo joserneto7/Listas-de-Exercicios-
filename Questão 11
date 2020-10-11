@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+//Escrevendo o código, o compilador me sugeriu usar %lu no lugar de %d. Após estudar acerca, descobri que é devido o %lu ser um especificador de formato, então seu uso seria mais conveniente, embora o %d também apresentaria os resultados.
+
+char vchar[4];
+  printf("\nTamanho do vetor para char é: %lu bytes \n\n", sizeof(vchar));
+//Como antes visto, como uma variável do tipo char ocupa 1 byte de memória cada, 4 delas ocuparão 4 bytes, como impresso pelo programa. Logo, como colocado na questão anterior, o vetor está alocado no espaço que vai do endereço de memória 4092 até o endereço de memória 4095.
+
+int vint[4];
+  printf("Tamanho do vetor para int é: %lu bytes \n", sizeof(vint));
+//No meu compilador, uma variável int tem tamanho de 4 bytes, mas como no compilador do usuário da questão tem tamanho 2 de bytes para cada int, o código se aplicará. Para tal, adotando o tamanho de 2 bytes por int, podemos afirmar que o vetor está alocado do espaço de memória 4092 à 4098.  
+
+float vfloa[4];
+  printf("\nTamanho do vetor para float é: %lu bytes\n", sizeof(vfloa));
+//Como antes visto, como uma variável do tipo float ocupa 4 bytes de memória cada, 4 delas ocuparão 16 bytes, como impresso pelo programa. Logo, como colocado na questão anterior, o vetor está alocado no espaço que vai do endereço de memória 4092 até o endereço de memória 4104.
+
+double vdou[4];
+  printf("\nTamanho do vetor para float é: %lu bytes", sizeof(vdou));
+//Como antes visto, como uma variável do tipo double ocupa 8 bytes, 4 delas ocuparão 32 bytes, como impresso pelo programa. Logo, como colocado na questão anterior, o vetor vai do endereço de memória 4092 até o endereço de memória 4116.
+
+
+  return 0;
+}
+
