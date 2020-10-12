@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//Função soma dos vetores
+void soma (int *vetA, int *vetB, int *vetC, int tamABC){
+  int s = 1;
+    for(s=1;s<=tamABC;s++){
+      vetC[s] = vetA[s] + vetB[s];
+    }
+}
+
+//Função print vetor
+void print(int *vetor, int tamABC){
+  int s;
+   printf("\nO vetor soma de A + B é: {");
+    for(s=1; s<=tamABC; s++){
+      printf("%i;", vetor[s]);
+    }
+    printf("}");
+}
+
+int main() {
+//Variávais
+int tamABC;
+int i=1, e=1, j=1, k=1;
+
+//Definindo a dimensão dos vetores
+  printf("\nDefina a dimensão dos vetores: ");
+    scanf("%d", &tamABC);
+      int vetA[tamABC];
+        printf("\n");
+   
+//Definindo os elementos do vetor A
+  while(i<=tamABC){
+    printf("Digite o termo do vetor %i A: ", i);
+      scanf("%i", &vetA[i]);
+        i++;
+  }
+     printf("\n");
+  
+//Definindo os elementos do vetor B
+    int vetB[tamABC];
+    while(e<=tamABC){
+      printf("Digite o termo do vetor %i B: ", e);
+        scanf("%i", &vetB[e]);
+          e++;
+  }
+  
+  //Exibição do vetor A
+    printf("\nO seu vetor A é: {");
+      while (j<=tamABC){
+        printf("%d;", vetA[j]); 
+          j++; 
+    }
+            printf("}");
+  //Exibindo o vetor B
+    printf("\nO seu vetor B é: {");
+      while (k<=tamABC){
+        printf("%d;", vetB[k]); 
+          k++; 
+    }
+            printf("}");
+   
+  //Somando os veotes A e B
+  int vetC[tamABC];
+  //Chamando a função soma
+    soma(vetA, vetB, vetC, tamABC);
+    printf("\n");
+ //Chamando a função que imprime o vetor
+    print(vetC,tamABC);
+
+  return 0;
+}
