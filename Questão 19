@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//Função que permite alocar as linnhas e colunas de cada matiz em ponteiros para ponteiros
+int **Aloca(int lin, int col){
+  int i, j, **mat;
+  mat = malloc(lin*sizeof(int*));
+  mat[0]=malloc(col*lin*sizeof(int));
+  for(i=1; i<lin; i++){
+    mat[i]= mat[i-1]+col;
+  }
+  return mat;
+}
+
+//Função que irá realizar a multiplicação matrixcial
+void Multiplica(int **matriz, int **matriz1, int **matriz2, int linA, int colA, int colB){
+int i, j, l;
+for(i=0; i<linA; i++){
+  for(j=0; j<colB; j++){
+    matriz2[i][j] = 0;
+  for(l=0; l<colA; l++){ 
+     matriz2[i][j] = matriz2[i][j] + matriz[i][l]*matriz1[l][j];
+      }
+    }
+  }
+}
+
+//Função que vai exibir o resultado final
+ void printa(int **mat ,int lin,int col){
+ int i,j;
+ for (i=0; i<lin; i++){
+  for (j=0; j<col; j++){
+    printf("%i \t", mat[i][j]);
+    }
+    printf("\n");
+  }
+}
+
+int main(void){
+//Variáveis
+  int linA, colA, linB, colB;
+ printf("\nGerador de Matrizes");
+  int **P, **S, **T; //Ponteiros para ponteiros que irão alocar as matrizes A, B e AB
+// -------------------- MATRIZ A ----------------------------------
+   //Perguntando o número de linhas da matria A
+  printf("\n Digite o número de linhas da Matriz A: ");
+  scanf("%i", &linA);
+  while(linA<=0){
+    printf(" Número inválido, digite novamente: ");
+    scanf("%i", &linA);
+  }
+
+  //Perguntando o número de colunas de A
+  printf(" Digite o número de colunas da matriz A: ");
+  scanf("%i", &colA);
+  while(colA<=0){
+    printf(" Número inválido, digite novamente: ");
+    scanf("%i", &colA);
+  }
+  printf("\n A matriz A é: ");
+  printf("\n");
+ 
+//Definindo a matriz
+ P = Aloca(linA, colA);
+//Começando a gerar minha matriz
+   for(int x = 0; x < linA; x++)
+   { 
+      for (int y =0; y< colA; y++){
+         P[x][y] = rand()%100 + 1; //Eu escolhi preencher as matrizes com números randômicos de 0 à 100
+                                    }
+   }
+//Mostrando a matriz
+     for(int x = 0; x < linA; x++){
+     for (int y =0; y< colA; y++){
+      printf(" %i ", P[x][y]); 
+          }
+     printf("\n");
+   }
+
+//--------------------------Matriz B------------------------------------------------------
+
+  //Perguntando o número de colunas de B
+  printf(" \nDigite o número de colunas da matriz B: ");
+  scanf("%i", &colB);
+  while(colB<=0){
+    printf(" Número inválido, digite novamente: ");
+    scanf("%i", &colB);
+  }
+  printf("\n A matriz B é: ");
+  printf("\n");
+
+//Definindo a matriz
+S = Aloca(colA, colB);
+//Começando a gerar minha matriz
+   for(int z = 0; z < colA; z++)
+   { 
+      for (int w =0; w< colB; w++){
+         S[z][w] = rand()%100 + 1; 
+                                    }
+   }
+//Mostrando a matriz
+     for(int z = 0; z < colA; z++){
+     for (int w =0; w< colB; w++){
+      printf(" %i ", S[z][w]); 
+          }
+     printf("\n");
+   }
+
+//---------------------Matriz Resultado-----------------------------------------------
+
+printf("\n A matriz multiplicação AB é: ");
+  T = Aloca(linA, colB);
+    printf("\n");
+Multiplica(P, S, T, linA, colA, colB);
+printa(T, linA, colB);
+
+//-----------------------Liberação das alocações-----------------------------------------
+
+  free(P[0]);
+  free(P);
+  free(S[0]);
+  free(S);
+  free(T[0]);
+  free(T);
+  return 0;
+}
