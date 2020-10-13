@@ -1,0 +1,121 @@
+Para aferir o tempo de execução dos dois programas, fiz uso da função clock(), presente na biblioteca time.h da linguagem C. Para tal, foi aferido através deste o tempo que
+levou para executar a função qsort (explicitada pelo professor), na questão 15, e para executar a derivação da função qsort escrita por mim na questão 15. fu
+
+-------------------------------------Programa da questão 15 com o aferidor de tempo de execução----------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+//A função qsort() é uma função em C utilizada para ordenação de arrays. 
+int compare (const void * a, const void * b) //A função receberá duas constantes do vetor e as comparará. Vemos que a função recebe dois ponteiros void, o que salienta a necessidade de exemplificar o tipo das constantes, no caso, inteiros.
+{
+  return ( *(int*)a - *(int*)b ); //Se o valor de “a” for maior do que o valor de “b”, então o resultado será maior do que zero significando que o primeiro valor é maior do que o segundo. *Fato interessando é que essa ordenação fará o vetor exibir seus termos organizados em ordem crescente. Se inverter os termos a e b, o vetor será exibido em ordem decrescente.
+}
+
+//Função principal
+int main(){
+     clock_t Ticks[2];
+    Ticks[0] = clock();
+
+//Caracterização do vetor qtd: Irá solicitar que o usuário defina o tamanho do vetor, e armazenará na variável qtd.
+  int qtd;
+      printf("\n Digite o a quantidade de termos do vetor: ");
+         scanf("%d", &qtd);
+
+//Aqui definimos o vetor de números do tipo float, de tamanho "qtd", bem como que o índice i do vetor com valor inicial de 0 e a variável "valor" que guardará os valores digitados pelo usuário para o vetor.
+  float vetor[qtd];
+  int i = 0;
+  float valor;
+  
+//Nessa parte eu incremento um while onde determina que enquanto o índice do vetor for menor que o inteiro qtd, o usuário deverá digitar termos. Por ex: Se qtd = 2, o usuário digitará dois valores. Um valor para o índice i[0] e um valor para o índice i[1] (Já que o o while lerá de 0 à qtd-1).
+    while(i<qtd){
+      printf(" Digite o termo: ");
+        scanf("%f", &valor); //Após cada índice preenchido pelo usuário, o programa vai guardar essa variável float no endereço de memória da variável valor.
+          vetor [i] = valor; //Em último passo, o valor contido em valor será armazenado no vetor "vetor" de índice i.
+              i++; //Condição de repetição: Após o processo feito para um termo, o programa irá repetir a execução para os próximos termos, até o termo qtd - 1.
+    }
+  //Criação de um while para exebir o vetor digitado (Ainda de forma desordenada)
+   int j=0; //Criação de um novo índice para o vetor "vetor"
+    printf("\n O seu vetor é: {");
+   while (j<qtd){
+    //Enquanto o índide j for menor do que a variável qtd, será impresso o valor digitado pelo usuário, atmazenando no vetor de índice j.
+     printf("%.1f;", vetor[j]); //Por organização, solicitei ao programa para usar apenas uma cassa decimal.
+     j++; //Novamente a condição que fará esse trecho parar de executar, a condição de encerramento
+   }
+  printf("}");
+
+//Agora sim vamos chamar a função qsort para organizar os termos do vetor
+int n; //Criação de uma variável inteira n que será o índice do vetor organizado
+printf("\n O seu vetor reorganizado será: {");
+  qsort (vetor, qtd, sizeof(float), compare); //Aqui eu passo para a função comparação o meu vetor, a quantidade de termos dele (Para delimitar quais termos eu devo ordenar), o tamanho de cada elemento do tipo float (Estou dizendo para a função qual o tipo dos elementos que eu estou querendo ordenar) e, por fim, chamo a função compare.
+ 
+ //Esse trecho é usado para imprimir o vetor novamente, dessa vez de forma organizada
+  for (n=0; n<qtd; n++){
+     printf ("%.1f;",vetor[n]);
+  }
+ printf("}");
+  
+  Ticks[1] = clock();
+    double Tempo = (Ticks[1] - Ticks[0]) * 1000.0 / CLOCKS_PER_SEC;
+    printf("\n\n Tempo gasto: %g ms.", Tempo);
+    getchar();
+
+  return 0;
+}
+
+
+--------------------------------------Programa da questão 16 com o aferidor de tempo de execução----------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+//struct para dois parâmetros: nome e idade 
+struct pessoa {
+    char nome;
+    int idade;
+};
+//função para comparar a idade
+int compararIdade (const void *x, const void *y) {
+    int pri = ((struct pessoa *)x)->idade;
+    int seg = ((struct pessoa *)y)->idade;
+    return (pri - seg);
+}
+
+
+int main () {
+   int i=1, qtd;
+   clock_t Ticks[2];
+    Ticks[0] = clock();
+
+//Quantidade  de pessoas da amostra
+printf("\nEntre com a quantidade de pessoas da sua amostra: ");
+  scanf("%i", &qtd);
+    char pessoa[qtd][qtd];
+      int idade[qtd];
+        
+
+//Pedindo para o usuário digitar o nome e as idades das pessoas
+  while(i<=qtd){
+    printf("\nDigite o nome da pessoa %i: ",i);
+      scanf("%s", &pessoa[i]);
+        printf("Digite a idade de %i: ", i);
+          scanf("%i", &idade[i]);
+            i++;
+  }
+
+   struct pessoa item[qtd];
+ 
+   printf("\nPessoas ordenadas por idade em ordem decrescente:\n");
+   qsort(item, qtd, sizeof(struct pessoa), compararIdade);
+   for (i = 1; i <= qtd; i++) {
+     printf(" %s: %d;\n", pessoa[i], idade[i]);
+   }
+  
+  Ticks[1] = clock();
+    double Tempo = (Ticks[1] - Ticks[0]) * 1000.0 / CLOCKS_PER_SEC;
+    printf("Tempo gasto: %g ms.", Tempo);
+    getchar();
+ 
+   return(0);
+}
