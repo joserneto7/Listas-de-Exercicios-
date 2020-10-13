@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+//struct para dois parâmetros: nome e idade 
+struct pessoa {
+    char nome;
+    int idade;
+};
+//função para comparar a idade
+int compararIdade (const void *x, const void *y) {
+    int pri = ((struct pessoa *)x)->idade;
+    int seg = ((struct pessoa *)y)->idade;
+    return (pri - seg);
+}
+
+
+int main () {
+   int i=1, qtd;
+
+//Quantidade  de pessoas da amostra
+printf("\nEntre com a quantidade de pessoas da sua amostra: ");
+  scanf("%i", &qtd);
+    char pessoa[qtd][qtd];
+      int idade[qtd];
+        
+
+//Pedindo para o usuário digitar o nome e as idades das pessoas
+  while(i<=qtd){
+    printf("\nDigite o nome da pessoa %i: ",i);
+      scanf("%s", &pessoa[i]);
+        printf("Digite a idade de %i: ", i);
+          scanf("%i", &idade[i]);
+            i++;
+  }
+
+   struct pessoa item[qtd];
+ 
+   printf("\nPessoas ordenadas por idade em ordem decrescente:\n");
+   qsort(item, qtd, sizeof(struct pessoa), compararIdade);
+   for (i = 1; i <= qtd; i++) {
+     printf(" %s: %d;\n", pessoa[i], idade[i]);
+   }
+  
+ 
+   return(0);
+}
