@@ -1,0 +1,26 @@
+a) aloha[2] = value; //É válido, pois dizemos aqui que o vetor aloha de índice 2 contém, agora, o valor da varável float value, ou seja, 2.2
+
+b) scanf("%f", &aloha); //Não é válido, pois necessita-se especificar o índice do vetor que deseja-se alocar o elemento solicitado no scanf
+
+c) aloha = value //Não é valida a expressão uma vez que está sendo igualado um vetor a um elemento. Necessita-se especificar o índice do vetor que irá receber o 
+   elemento value.
+
+d) printf("%f", aloha); //Não é válido, pois aloha é um vetor e não uma variável. Se a questão quisesse imprimir os elementos do vetor, deveria fazer printf("%f", aloha[indice])
+   que o índice seria exibido. Caso quisesse todo o vetor, poderia repetir o processo ou fazer uso de um laço de repetição como o for e while, da linguagem C e de tantas outras.
+
+e) coisas[4][4] = aloha[3]; //É válido. Aqui dizemos que o elemento COISAS44 é igual ao quarto elemento do vetor aloha OBS: O índice da matriz começa em 0 e vai até 9. Logo, 
+   o elemento do índice 3 é na verdade o quarto elemento da matriz aloha. Outro ponto é que esse elemento, segundo a literatura algébrica, será alocada na quarta coluna da linha 
+   quatro da matriz coisas
+
+f) coisas[5] = aloha //Não é válido por dois motivos. O primeiro, aloha não é uma variável, mas sim um vetor e, por fim, coisas é uma matriz e não um vetor. Por tais motivos, o
+   código fica invalidado.
+
+g) pf = value; //Não é válido, ponteiro para inteiro pf deverá apontar para o valor alocado no endereço da variável value. Logo, o trecho de código deveria ser escrito da 
+  seguinte forma:
+                           pf = &value;
+                           printf("%f", *pf);
+
+h) pf = aloha; //É válido. O ponteiro para inteiro pf estará apontando para o elemento da matriz aloha caso você imprima
+                           printf("%f", *pf);
+                ou para o endereço de memória, caso seja impresso:
+                           printf("%p", pf);
