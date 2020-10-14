@@ -1,5 +1,6 @@
 Para aferir o tempo de execução dos dois programas, fiz uso da função clock(), presente na biblioteca time.h da linguagem C. Para tal, foi aferido através deste o tempo que
-levou para executar a função qsort (explicitada pelo professor), na questão 15, e para executar a derivação da função qsort escrita por mim na questão 15. fu
+levou para executar a função qsort (explicitada pelo professor), na questão 15, e para executar a derivação da função qsort escrita por mim na questão 15. O tempo foi aferido e 
+ficou notório que a função qsort executou mais rápido do que a minha função, exemplificando o porque de sua utilização.
 
 -------------------------------------Programa da questão 15 com o aferidor de tempo de execução----------------------------------------------------------------------------------
 #include <stdio.h>
