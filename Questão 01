@@ -1,4 +1,5 @@
 Por definição, podemos vislumbrar que a principal importância do uso de ponteiros é a permissão da alocação dinâmimica de memória. Os ponteiros indicam onde estão, na memória, 
-todas as variáveis do código, facilitando o processo de identificação desses. Na engenharia, principalmente, tem seu uso muito difundido, uma vez que se faz necessário o armazenamento
-de uma enorme quantidade de informações que são passíveis de mudanças ao longo do tempo. Para tal, basta só referenciar o ponteiro e você terá tal informação em segundo, facilitando
-o trabalho de quem desse artefato faz uso.
+todas as variáveis do código, facilitando o processo de identificação desses. Na engenharia, principalmente, tem seu uso muito difundido, uma vez que se faz necessário o 
+armazenamento de uma enorme quantidade de informações que são passíveis de mudanças ao longo do tempo. Para tal, basta só referenciar o ponteiro e você terá tal informação em 
+instantaneamente, facilitando o trabalho de quem desse artefato faz uso. Além disso, o uso de ponteiros é muito utilizado na manipulação de matrizes e arrays, ajudando na sua 
+criação e execução, podendo também retormar valores de uma função pré definida.
