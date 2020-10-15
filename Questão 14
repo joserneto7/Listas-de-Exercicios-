@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h> //A função qsort está inclusa nesta biblioteca
+#include <stdlib.h> 
 
 //Função principal
 int main(){
