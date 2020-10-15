@@ -10,15 +10,20 @@ int *aux;
 p = &i;
 q = &j;
 //Imprimindo as questões
-    //a
+    //a Como o ponteiro p aponta para o endereço da variável "i", se imprimirmos p, obteremos o endereço de memória da variável i.
     p = &i;
     printf("\n Letra a) %p", p );
-    //b
+
+    //b Aqui temos dois ponteiros que apontam para os inteiros contidos no endereço de memória das variáveis i e j. Para tal, subtrair um ponteiro do outro seria subtrair os 
+        inteiros contidos nos endereços de memória.
     int x = *q - *p;
     printf("\n Letra b) %i ", x); 
-    //c
+
+    //c Aqui aqui um ponteiro que está apontando para o ponteiro que aponta para o endereço de memória de p. De maneira simplificada: *&p está apontando para o endereço de 
+        memória e *(*&p) está apontando para o inteiro contido no endereço de memória de p. 
     printf("\n Letra c) %i ", **&p);
-    //d
+
+    //d Aqui só realizamos uma operação aritimética simples entendendo o que foi explicitado acima. Seu resultado será 10.
     int y = (3 - ( *p/ *q) + 7); 
     printf("\n Letra d) %i ", y);
 
